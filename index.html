@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card</title>
+</head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+}
+
+.product-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.product-title {
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+.product-description {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.product-price {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.quantity-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.quantity-button {
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.quantity {
+    margin: 0 10px;
+    font-size: 1.2em;
+}
+
+.add-to-cart-button {
+    margin-top: 10px;
+    border: none;
+    background-color: #28A745;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+</style>
+<body>
+    <div class="product-card">
+        <img src="coffee_mug.webp" alt="Coffee Mug" class="product-image">
+        <h2 class="product-title">Coffee Mug</h2>
+        <p class="product-description">A stylish mug for your favorite beverages.</p>
+        <p class="product-price">$10.00</p>
+        <div class="quantity-container">
+            <button id="decrement" class="quantity-button">-</button>
+            <span id="quantity" class="quantity">1</span>
+            <button id="increment" class="quantity-button">+</button>
+        </div>
+        <button class="add-to-cart-button">Add to Cart</button>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const quantityElement = document.getElementById('quantity');
+    const incrementButton = document.getElementById('increment');
+    const decrementButton = document.getElementById('decrement');
+
+    let quantity = 1;
+
+    incrementButton.addEventListener('click', () => {
+        quantity++;
+        quantityElement.textContent = quantity;
+    });
+
+    decrementButton.addEventListener('click', () => {
+        if (quantity > 1) {
+            quantity--;
+            quantityElement.textContent = quantity;
+        }
+    });
+});
+
+    </script>
+</body>
+</html>
